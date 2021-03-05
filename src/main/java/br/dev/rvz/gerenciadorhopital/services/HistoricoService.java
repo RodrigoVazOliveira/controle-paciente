@@ -7,6 +7,7 @@ public class HistoricoService {
 
     public Historico cadastrar(Paciente paciente, Historico historico) {
         paciente.getHistoricos().add(historico);
+        return historico;
     }
 
 }
