@@ -1,5 +1,6 @@
 package br.dev.rvz.gerenciadorhopital.controllers;
 
+import br.dev.rvz.gerenciadorhopital.models.Historico;
 import br.dev.rvz.gerenciadorhopital.models.Paciente;
 import br.dev.rvz.gerenciadorhopital.services.PacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,16 @@ public class PacienteController {
         try {
             pacienteService.cadatrar(paciente);
             return paciente;
+        } catch (RuntimeException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
+        }
+    }
+
+    @PutMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Paciente cadastrarHistorico(@RequestParam("cpf") String cpf,  @RequestBody Historico historico) {
+        try {
+            return pacienteService.cadastrarHistorico(cpf, historico);
         } catch (RuntimeException e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
         }
