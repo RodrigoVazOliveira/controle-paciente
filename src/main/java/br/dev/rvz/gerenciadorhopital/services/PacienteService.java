@@ -34,6 +34,12 @@ public class PacienteService {
         throw new RuntimeException("Paciente com CPF " + cpf + " não foi localizado");
     }
 
+    public Paciente pesquisar(String cpf) throws RuntimeException {
+        Paciente paciente = new Paciente();
+        paciente.setCpf(cpf);
+        return pesquisar(paciente);
+    }
+
     public Paciente pesquisar(Paciente paciente) throws RuntimeException {
         for(Paciente p : pacientes) {
             if (p.getCpf().equalsIgnoreCase(paciente.getCpf())) {
