@@ -1,12 +1,13 @@
 package br.dev.rvz.gerenciadorhopital.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Paciente {
     private String nome;
     private Integer idade;
     private String cpf;
-    private List<Historico> historicos;
+    private List<Historico> historicos = new ArrayList<>();
 
     public Paciente() {
     }
