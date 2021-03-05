@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/paciente/")
 public class PacienteController {
@@ -31,6 +33,16 @@ public class PacienteController {
     public Paciente cadastrarHistorico(@RequestParam("cpf") String cpf,  @RequestBody Historico historico) {
         try {
             return pacienteService.cadastrarHistorico(cpf, historico);
+        } catch (RuntimeException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
+        }
+    }
+
+    @GetMapping("{cpf}/")
+    @ResponseStatus(HttpStatus.OK)
+    public Paciente pesquisarPaciente(@PathVariable String cpf) {
+        try {
+            return pacienteService.pesquisar(cpf);
         } catch (RuntimeException e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
         }
