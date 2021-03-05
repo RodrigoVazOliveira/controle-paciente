@@ -8,7 +8,7 @@ public class Paciente {
     private String nome;
     private Integer idade;
     private String cpf;
-    private List<Historico> historicos = new ArrayList<>();
+    private List<Historico> historicos;
 
     public Paciente() {
     }
