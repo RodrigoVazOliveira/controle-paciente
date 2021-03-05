@@ -26,7 +26,7 @@ public class PacienteController {
         }
     }
 
-    @PutMapping
+    @PutMapping("historico")
     @ResponseStatus(HttpStatus.CREATED)
     public Paciente cadastrarHistorico(@RequestParam("cpf") String cpf,  @RequestBody Historico historico) {
         try {

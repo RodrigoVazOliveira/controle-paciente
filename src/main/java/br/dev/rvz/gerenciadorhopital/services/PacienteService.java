@@ -26,7 +26,7 @@ public class PacienteService {
 
     public Paciente cadastrarHistorico(String cpf, Historico historico) throws RuntimeException {
         for (Paciente paciente : pacientes) {
-            if (paciente.getCpf().equals(cpf)) {
+            if (paciente.getCpf().equalsIgnoreCase(cpf)) {
                 historicoService.cadastrar(paciente, historico);
                 return paciente;
             }
