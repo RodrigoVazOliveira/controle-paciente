@@ -10,7 +10,15 @@ import java.util.List;
 @Service
 public class PacienteService {
 
+    List<Paciente> pacientes = new ArrayList<>();
 
+    public Paciente cadatrar(Paciente paciente) {
+        if (!pacientes.contains(paciente)) {
+            pacientes.add(paciente);
+            return paciente;
+        }
+        throw new RuntimeException("O paciente com CPF " + paciente.getCpf() + " Já existe cadastrado");
+    }
 
 
 }
