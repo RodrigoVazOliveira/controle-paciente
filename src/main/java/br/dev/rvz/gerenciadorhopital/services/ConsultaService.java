@@ -35,12 +35,12 @@ public class ConsultaService {
         List<ConsultaDTO> dados = new ArrayList<>();
 
         for (Consulta consulta : consultas) {
-            if (consulta.equals(dataConsulta)) {
+            if (consulta.getDataConsulta().equals(dataConsulta)) {
                 dados.add(converterConsultaParaConsultaDTO(consulta));
             }
         }
 
-        if (!dados.isEmpty()) {
+        if (dados.size() > 0) {
             return dados;
         }
 
