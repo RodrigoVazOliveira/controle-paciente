@@ -1,7 +1,6 @@
 package br.dev.rvz.gerenciadorhopital.controllers;
 
 import br.dev.rvz.gerenciadorhopital.dto.ConsultaDTO;
-import br.dev.rvz.gerenciadorhopital.dto.PacienteDTO;
 import br.dev.rvz.gerenciadorhopital.models.Consulta;
 import br.dev.rvz.gerenciadorhopital.models.Paciente;
 import br.dev.rvz.gerenciadorhopital.services.ConsultaService;

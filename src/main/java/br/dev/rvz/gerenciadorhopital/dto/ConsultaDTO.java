@@ -47,9 +47,7 @@ public class ConsultaDTO {
         pacienteDTO.setNome(consulta.getPaciente().getNome());
         pacienteDTO.setCpf(consulta.getPaciente().getCpf());
         pacienteDTO.setIdade(consulta.getPaciente().getIdade());
-
         consultaDTO.setPacienteDTO(pacienteDTO);
-
         return consultaDTO;
     }
 
