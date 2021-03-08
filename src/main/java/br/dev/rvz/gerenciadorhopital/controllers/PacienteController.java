@@ -1,5 +1,6 @@
 package br.dev.rvz.gerenciadorhopital.controllers;
 
+import br.dev.rvz.gerenciadorhopital.dto.PacienteDTO;
 import br.dev.rvz.gerenciadorhopital.models.Historico;
 import br.dev.rvz.gerenciadorhopital.models.Paciente;
 import br.dev.rvz.gerenciadorhopital.services.PacienteService;
@@ -19,7 +20,7 @@ public class PacienteController {
 
     @PutMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Paciente cadastrarPaciente(@RequestBody Paciente paciente) {
+    public Paciente cadastrarPaciente(@RequestBody PacienteDTO paciente) {
         try {
             pacienteService.cadatrar(paciente);
             return paciente;
