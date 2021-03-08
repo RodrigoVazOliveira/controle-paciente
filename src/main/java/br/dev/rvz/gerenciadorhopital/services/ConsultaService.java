@@ -17,7 +17,7 @@ public class ConsultaService {
 
     List<Consulta> consultas = new ArrayList<>();
 
-    public void cadastrar(ConsultaDTO consultaDTO, String cpf) {
+    public Consulta cadastrar(ConsultaDTO consultaDTO, String cpf) {
         Paciente paciente = pacienteService.pesquisar(cpf);
 
         Consulta consulta = new Consulta();
@@ -26,6 +26,8 @@ public class ConsultaService {
         consulta.setTipoConsulta(consultaDTO.getTipoConsulta());
 
         consultas.add(consulta);
+
+        return consulta;
     }
 
     public List<Consulta> pesquisarConsultaPorData(LocalDate dataConsulta) {
