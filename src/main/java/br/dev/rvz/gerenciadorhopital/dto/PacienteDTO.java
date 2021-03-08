@@ -1,5 +1,7 @@
 package br.dev.rvz.gerenciadorhopital.dto;
 
+import br.dev.rvz.gerenciadorhopital.models.Paciente;
+
 public class PacienteDTO {
     private String nome;
     private Integer idade;
@@ -30,5 +32,14 @@ public class PacienteDTO {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public Paciente converterPacienteDTOParaPaciente() {
+        Paciente paciente = new Paciente();
+        paciente.setNome(this.nome);
+        paciente.setCpf(this.cpf);
+        paciente.setIdade(this.idade);
+
+        return paciente;
     }
 }
