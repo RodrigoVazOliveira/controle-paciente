@@ -39,7 +39,11 @@ public class ConsultaService {
             }
         }
 
-        return dados;
+        if (!dados.isEmpty()) {
+            return dados;
+        }
+
+        throw new RuntimeException("Não foi localizado nenhuma consulta com a data " + dataConsulta);
     }
 
     public void excluirConsulta(Consulta consulta) {
