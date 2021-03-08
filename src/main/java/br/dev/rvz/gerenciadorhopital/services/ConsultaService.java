@@ -31,12 +31,12 @@ public class ConsultaService {
         return consulta;
     }
 
-    public List<Consulta> pesquisarConsultaPorData(LocalDate dataConsulta) {
-        List<Consulta> dados = new ArrayList<>();
+    public List<ConsultaDTO> pesquisarConsultaPorData(LocalDate dataConsulta) {
+        List<ConsultaDTO> dados = new ArrayList<>();
 
         for (Consulta consulta : consultas) {
             if (consulta.equals(dataConsulta)) {
-                dados.add(consulta);
+                dados.add(converterConsultaParaConsultaDTO(consulta));
             }
         }
 
