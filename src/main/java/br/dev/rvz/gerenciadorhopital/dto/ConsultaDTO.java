@@ -7,8 +7,17 @@ import java.time.LocalDate;
 public class ConsultaDTO {
     private LocalDate dataConsulta;
     private TipoConsulta tipoConsulta;
+    private PacienteDTO pacienteDTO;
 
     public ConsultaDTO() {
+    }
+
+    public PacienteDTO getPacienteDTO() {
+        return pacienteDTO;
+    }
+
+    public void setPacienteDTO(PacienteDTO pacienteDTO) {
+        this.pacienteDTO = pacienteDTO;
     }
 
     public LocalDate getDataConsulta() {
