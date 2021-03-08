@@ -1,5 +1,6 @@
 package br.dev.rvz.gerenciadorhopital.services;
 
+import br.dev.rvz.gerenciadorhopital.dto.ConsultaDTO;
 import br.dev.rvz.gerenciadorhopital.models.Consulta;
 import br.dev.rvz.gerenciadorhopital.models.Paciente;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +17,14 @@ public class ConsultaService {
 
     List<Consulta> consultas = new ArrayList<>();
 
-    public void cadastrar(Consulta consulta, String cpf) {
+    public void cadastrar(ConsultaDTO consultaDTO, String cpf) {
         Paciente paciente = pacienteService.pesquisar(cpf);
+
+        Consulta consulta = new Consulta();
+        consulta.setPaciente(paciente);
+        consulta.setDataConsulta(consultaDTO.getDataConsulta());
+        consulta.setTipoConsulta(consultaDTO.getTipoConsulta());
+
         consultas.add(consulta);
     }
 
