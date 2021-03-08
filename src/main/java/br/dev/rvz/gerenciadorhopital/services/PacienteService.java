@@ -18,6 +18,7 @@ public class PacienteService {
 
     public Paciente cadatrar(Paciente paciente) throws RuntimeException {
         if (!pacientes.contains(paciente)) {
+            paciente.setHistoricos(new ArrayList<>());
             pacientes.add(paciente);
             return paciente;
         }
