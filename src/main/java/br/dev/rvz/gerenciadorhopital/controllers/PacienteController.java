@@ -20,10 +20,9 @@ public class PacienteController {
 
     @PutMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Paciente cadastrarPaciente(@RequestBody PacienteDTO paciente) {
+    public Paciente cadastrarPaciente(@RequestBody PacienteDTO pacienteDTO) {
         try {
-            pacienteService.cadatrar(paciente);
-            return paciente;
+            return pacienteService.cadatrar(pacienteDTO.converterPacienteDTOParaPaciente());
         } catch (RuntimeException e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
         }
