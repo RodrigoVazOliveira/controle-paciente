@@ -1,6 +1,7 @@
 package br.dev.rvz.gerenciadorhopital.services;
 
 import br.dev.rvz.gerenciadorhopital.models.Consulta;
+import br.dev.rvz.gerenciadorhopital.models.Paciente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,5 +15,9 @@ public class ConsultaService {
 
     List<Consulta> consultas = new ArrayList<>();
 
+    public void cadastrar(Consulta consulta, String cpf) {
+        Paciente paciente = pacienteService.pesquisar(cpf);
+        consultas.add(consulta);
+    }
 
 }
