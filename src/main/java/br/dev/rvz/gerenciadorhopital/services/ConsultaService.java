@@ -33,7 +33,7 @@ public class ConsultaService {
         return dados;
     }
 
-    public Consulta excluirConsulta(Consulta consulta) {
+    public void excluirConsulta(Consulta consulta) {
         consultas.remove(consulta);
     }
 
