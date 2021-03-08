@@ -18,16 +18,8 @@ public class ConsultaService {
 
     List<Consulta> consultas = new ArrayList<>();
 
-    public Consulta cadastrar(ConsultaDTO consultaDTO, String cpf) {
-        Paciente paciente = pacienteService.pesquisar(cpf);
-
-        Consulta consulta = new Consulta();
-        consulta.setPaciente(paciente);
-        consulta.setDataConsulta(consultaDTO.getDataConsulta());
-        consulta.setTipoConsulta(consultaDTO.getTipoConsulta());
-
+    public Consulta cadastrar(Consulta consulta) {
         consultas.add(consulta);
-
         return consulta;
     }
 

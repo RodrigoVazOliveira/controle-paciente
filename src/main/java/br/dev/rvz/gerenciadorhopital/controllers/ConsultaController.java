@@ -31,7 +31,7 @@ public class ConsultaController {
     public Consulta cadastrar(@RequestBody ConsultaDTO consultaDTO, @RequestParam("cpf") String cpf) {
         try {
             Paciente paciente = pacienteService.pesquisar(cpf);
-            Consulta consulta = consultaDTO.converterConsultaDTOParaConsulta(consultaDTO, paciente);
+            Consulta consulta = consultaDTO.converterConsultaDTOParaConsulta(paciente);
             return service.cadastrar(consulta);
         } catch (RuntimeException e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
