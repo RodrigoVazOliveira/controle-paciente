@@ -1,5 +1,6 @@
 package br.dev.rvz.gerenciadorhopital.dto;
 
+import br.dev.rvz.gerenciadorhopital.models.Consulta;
 import br.dev.rvz.gerenciadorhopital.models.TipoConsulta;
 
 import java.time.LocalDate;
@@ -34,5 +35,20 @@ public class ConsultaDTO {
 
     public void setTipoConsulta(TipoConsulta tipoConsulta) {
         this.tipoConsulta = tipoConsulta;
+    }
+
+    public ConsultaDTO converterConsultaParaConsultaDTO(Consulta consulta) {
+        ConsultaDTO consultaDTO = new ConsultaDTO();
+        consultaDTO.setDataConsulta(consulta.getDataConsulta());
+        consultaDTO.setTipoConsulta(consulta.getTipoConsulta());
+
+        PacienteDTO pacienteDTO = new PacienteDTO();
+        pacienteDTO.setNome(consulta.getPaciente().getNome());
+        pacienteDTO.setCpf(consulta.getPaciente().getCpf());
+        pacienteDTO.setIdade(consulta.getPaciente().getIdade());
+
+        consultaDTO.setPacienteDTO(pacienteDTO);
+
+        return consultaDTO;
     }
 }
