@@ -30,7 +30,7 @@ public class ConsultaController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<Consulta> pesquisarConsultaPorData(@PathVariable LocalDate dataDaConsulta) {
+    public List<ConsultaDTO> pesquisarConsultaPorData(@PathVariable LocalDate dataDaConsulta) {
         try {
             return service.pesquisarConsultaPorData(dataDaConsulta);
         } catch (RuntimeException e) {
