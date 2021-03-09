@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -20,21 +21,13 @@ public class PacienteController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Paciente cadastrarPaciente(@RequestBody PacienteDTO pacienteDTO) {
-        try {
-            return pacienteService.cadatrar(pacienteDTO.converterPacienteDTOParaPaciente());
-        } catch (RuntimeException e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
-        }
+    public Paciente cadastrarPaciente(@RequestBody @Valid PacienteDTO pacienteDTO) {
+        return pacienteService.cadatrar(pacienteDTO.converterPacienteDTOParaPaciente());
     }
 
     @GetMapping("{cpf}/")
     @ResponseStatus(HttpStatus.OK)
     public Paciente pesquisarPaciente(@PathVariable String cpf) {
-        try {
-            return pacienteService.pesquisar(cpf);
-        } catch (RuntimeException e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
-        }
+        return pacienteService.pesquisar(cpf);
     }
 }

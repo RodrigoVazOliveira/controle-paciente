@@ -1,5 +1,8 @@
 package br.dev.rvz.gerenciadorhopital.models;
 
+import org.springframework.validation.annotation.Validated;
+
+import javax.validation.constraints.Email;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -8,6 +11,7 @@ public class Paciente {
     private String nome;
     private Integer idade;
     private String cpf;
+    private String email;
     private List<Historico> historicos;
 
     public Paciente() {
@@ -43,6 +47,14 @@ public class Paciente {
 
     public void setHistoricos(List<Historico> historicos) {
         this.historicos = historicos;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
