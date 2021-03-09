@@ -18,21 +18,11 @@ public class PacienteController {
     @Autowired
     private PacienteService pacienteService;
 
-    @PutMapping
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Paciente cadastrarPaciente(@RequestBody PacienteDTO pacienteDTO) {
         try {
             return pacienteService.cadatrar(pacienteDTO.converterPacienteDTOParaPaciente());
-        } catch (RuntimeException e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
-        }
-    }
-
-    @PutMapping("historico")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Paciente cadastrarHistorico(@RequestParam("cpf") String cpf,  @RequestBody Historico historico) {
-        try {
-            return pacienteService.cadastrarHistorico(cpf, historico);
         } catch (RuntimeException e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
         }
