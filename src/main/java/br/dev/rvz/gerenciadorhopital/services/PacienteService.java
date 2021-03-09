@@ -26,16 +26,6 @@ public class PacienteService {
         throw new RuntimeException("O paciente com CPF " + paciente.getCpf() + " Já existe cadastrado");
     }
 
-    public Paciente cadastrarHistorico(String cpf, Historico historico) throws RuntimeException {
-        for (Paciente paciente : pacientes) {
-            if (paciente.getCpf().equalsIgnoreCase(cpf)) {
-                historicoService.cadastrar(paciente, historico);
-                return paciente;
-            }
-        }
-        throw new RuntimeException("Paciente com CPF " + cpf + " não foi localizado");
-    }
-
     public Paciente pesquisar(String cpf) throws RuntimeException {
         Paciente paciente = new Paciente();
         paciente.setCpf(cpf);
