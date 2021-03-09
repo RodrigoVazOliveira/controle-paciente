@@ -5,13 +5,14 @@ import br.dev.rvz.gerenciadorhopital.models.Paciente;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
+import java.util.List;
 
 @Service
 public class HistoricoService {
 
-    public Historico cadastrar(Paciente paciente, Historico historico) {
-        paciente.getHistoricos().add(historico);
-        Collections.sort(paciente.getHistoricos());
+    public Historico cadastrar(List<Historico> historicos, Historico historico) {
+        historicos.add(historico);
+        Collections.sort(historicos);
         return historico;
     }
 
